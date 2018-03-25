@@ -1,0 +1,30 @@
+{
+  "name": "spider-mac",
+  "version": "0.0.1",
+  "description": "a spider to get refurbished mac",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Youjingyu/spider-mac.git"
+  },
+  "keywords": [
+    "spider",
+    "refurbished",
+    "mac"
+  ],
+  "author": "whale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Youjingyu/spider-mac/issues"
+  },
+  "homepage": "https://github.com/Youjingyu/spider-mac#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "log4js": "^2.5.3",
+    "nodemailer": "^4.6.3",
+    "request": "^2.85.0"
+  }
+}
