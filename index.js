@@ -1,32 +1,9 @@
 const request = require('request');
 const cheerio = require('cheerio');
-const log4js = require('log4js');
-const nodemailer = require('nodemailer');
+const sendEmail = require('./send-email');
+const logger = require('./log')('spider');
 
-log4js.configure({
-  appenders: {
-    log: {
-      type: 'file',
-      filename: `./log/spider.log`
-    }
-  },
-  categories: {
-    default: {
-      appenders: ['log'],
-      level: 'info'
-    }
-  }
-});
-const logger = log4js.getLogger('log');
 
-let transporter = nodemailer.createTransport({
-    host: 'smtp.qq.com',
-    secure: true,
-    auth: {
-        user: '735284268@qq.com',
-        pass: '***'
-    }
-});
 
 spider();
 
@@ -39,15 +16,7 @@ function spider() {
         setTimeout(spider, 1000 * 60 * 1);
         logger.info('no mac air, sorry');
       } else {
-        transporter.sendMail({
-            from: '735284268@qq.com',
-            to: '735284268@qq.com',
-            subject: 'Message',
-            text: 'mac has been there'
-          }, (err, info) => {
-            console.log(info.envelope);
-            console.log(info.messageId);
-          });
+        sendEmail('mac has been there')
       }
     } else {
       logger.info(error);
